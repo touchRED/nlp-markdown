@@ -87,7 +87,7 @@ let Renderer = (props) => {
 let Editor = () => {
   const [rawContent, setRawContent] = React.useState(localStorage.getItem("content") ? localStorage.getItem("content") : "")
   const [corpusData, setCorpusData] = React.useState(nlp(""))
-  const [parseEntire, setParseEntire] = React.useState(true)
+  const [parseEntire, setParseEntire] = React.useState(false)
   
   let handleInputChange = (e) => {
     localStorage.setItem("content", e.target.value)
