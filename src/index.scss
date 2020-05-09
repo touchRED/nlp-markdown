@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+#app {
+  
+  textarea {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 52vw;
+    height: 100vh;
+    background: #eeeeee;
+    padding: 60px;
+    font-size: 16px;
+    font-family: monospace;
+    border: 0;
+    resize: none;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
+}
+
+#renderer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 50vw;
+  height: 100vh;
+  overflow: auto;
+  background: #ffffff;
+  padding: 45px 60px 60px;
+  font-family: system-ui, sans-serif;
+  line-height: 2;
+  color: #333333;
+  
+  hr {
+    opacity: 0.5;
+    border-style: ridge;
+  }
+}
+
+.word {
+  position: relative;
+  cursor: pointer;
+  margin: 0 2px;
+  
+  &__content {
+    border-radius: 2px;
+    background: var(--highlight, transparent);
+    // padding: 0 3px;
+    box-shadow: 0 0 0 0.2rem var(--highlight, transparent);
+  }
+    
+  &__hover {
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 10px;
+    background: white;
+    // border: 1px solid pink;
+    border-radius: 2px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    font-weight: 100;
+  }
+  
+  &:hover &__hover {
+    opacity: 1;
+  }
+}
+
+.Determiner {
+  --highlight: #ffde37;
+}
+
+.Adjective {
+  --highlight: #96ccff;
+}
+
+.Verb {
+  --highlight: #2DFF9A;
+  
+  &.Infinitive {
+    --highlight: #b8ffe4;
+  }
+  
+  &.PastTense {
+    // --highlight: #00eb79;
+  }
+}
+
+.Noun {
+  --highlight: #ff80cc;
+  
+  &.Singular {
+    --highlight: #ff80cc;
+  }
+  
+  &.Plural {
+    --highlight: #ffa3d7;
+  }
+  
+  &.Person {
+    --highlight: #ffa3d7;
+  }
+}
+
+.Expression {
+  --highlight: #a463f2;
+}
+
+.Adverb {
+  --highlight: #ff725c;
+  
+}
+
+
