@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import Editor from './App';
+import './css/main.scss';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Editor />
+    <App />
   </React.StrictMode>,
   document.getElementById('app')
 );

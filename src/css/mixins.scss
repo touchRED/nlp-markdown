@@ -1,0 +1,73 @@
+/* ------------------------------------------------------------------ */
+/*      MIXINS
+
+        - Global mixins used across the site
+/* ------------------------------------------------------------------ */
+
+/* ----- MEDIA QUERIES ----- */
+@mixin mobile-s {
+	@media screen and (max-width: $bp-mobile-s) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media screen and (max-width: $bp-mobile) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and (max-width: $bp-tablet) {
+		@content;
+	}
+}
+
+@mixin tablet-l {
+	@media screen and (max-width: $bp-tablet-l) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media screen and (max-width: $bp-desktop) {
+		@content;
+	}
+}
+
+@mixin desktop-l {
+	@media screen and (min-width: $bp-desktop-l) {
+		@content;
+	}
+}
+
+@mixin desktop-xl {
+	@media screen and (min-width: $bp-desktop-xl) {
+		@content;
+	}
+}
+
+/* ----- SIZE ----- */
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+// usage: @mixin size(100%, auto);
+
+
+
+/* ----- Hover only on non-touch devices ----- */
+@mixin hover() {
+	@media (any-hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+/* ----- Add cursor: pointer----- */
+@mixin pointer() {
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-touch-callout: none;
+}
