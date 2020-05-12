@@ -64,7 +64,7 @@ let Editor = (props) => {
   return (
     <a.div id="editor" style={styles}>
       <Toolbar action="play" />
-      <textarea onChange={props.handleInputChange} value={localStorage.getItem("content") ? localStorage.getItem("content") : ""}></textarea>
+      <textarea onChange={props.handleInputChange} value={localStorage.getItem("content") ? localStorage.getItem("content") : "# Hi :)"}></textarea>
     </a.div>
   )
 }
@@ -101,7 +101,7 @@ function reducer(state, action){
 }
 
 let App = () => {
-  const [rawContent, setRawContent] = React.useState(localStorage.getItem("content") ? localStorage.getItem("content") : "")
+  const [rawContent, setRawContent] = React.useState(localStorage.getItem("content") ? localStorage.getItem("content") : "# Hi :)")
   // const [corpusData, setCorpusData] = React.useState(nlp(""))
 
   const [appState, dispatch] = React.useReducer(reducer, {rendering: false})
