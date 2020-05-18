@@ -52,48 +52,122 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  padding: 45px 60px;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+
+  @include mobile {
+    padding: 30px;
+  }
 
   .icon {
-    position: absolute;
-    top: 20px;
-    right: 30px;
+    position: relative;
     width: 30px;
     height: 30px;
-    display: none;
+    cursor: pointer;
+    pointer-events: initial;
 
-    @include mobile {
-      display: block;
+    &.toggleSettings {
+      margin-left: 20px;
+
+      &:before {
+        content: "Settings";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 12px;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &.play, &.edit {
+      display: none;
+
+      @include mobile {
+        display: block;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        width: calc(90% - 1px);
+        height: 1px;
+        background: $black;
+        transform: translateY(-50%);
+      }
+  
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 30%;
+        height: 30%;
+        border-top: 1px solid $black;
+        border-right: 1px solid $black;
+        transform-origin: top right;
+        transform: rotate(45deg);
+      }
     }
 
     &.edit {
       transform-origin: center;
       transform: rotate(180deg);
-      // right: auto;
-      // left: 30px;
+    }
+  }
+}
+
+.settings {
+  overflow: hidden;
+
+  &__grid {
+    padding: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+
+    select {
+      appearance: none;
+      background: none;
+      border-radius: 0;
+      border: 0;
+      border-bottom: 1px solid #888888;
+      padding: 5px 0;
+      font-size: 12px;
+      cursor: pointer;
     }
 
-    &:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 10%;
-      width: calc(90% - 1px);
-      height: 1px;
-      background: $black;
-      transform: translateY(-50%);
+    input {
+      background: none;
+      appearance: none;
+      border: 0;
+      padding: 0;
+      margin: 0 10px;
+      height: 30px;
+      cursor: pointer;
     }
 
-    &:after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: 0;
-      width: 30%;
-      height: 30%;
-      border-top: 1px solid $black;
-      border-right: 1px solid $black;
-      transform-origin: top right;
-      transform: rotate(45deg);
+    button {
+      background: none;
+      appearance: none;
+      border-radius: 0;
+      border: 0;
+      border-bottom: 1px solid #888888;
+      padding: 0;
+      font-size: 10px;
+      cursor: pointer;
     }
   }
 }
